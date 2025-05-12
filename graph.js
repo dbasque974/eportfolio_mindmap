@@ -3,41 +3,71 @@ const svg = d3.select("svg"),
       height = +svg.attr("height");
 
 const nodes = [
-  {id: "A"}, {id: "B"}, {id: "C"}, {id: "D"},
-  {id: "E"}, {id: "F"}, {id: "G"}, {id: "H"},
-  {id: "I"}, {id: "J"}, {id: "K"}, {id: "L"}
+  {id: "Université", poste: "Enseignant vacataire", competences: ["Médiation culturelle", "Pédagogie", "Expression écrite"]},
+  {id: "PNP Informatique", poste: "Gérant", competences: ["Stratégie digitale", "Gestion de projet", "Relation client"]},
+  {id: "YES Formation", poste: "Formateur", competences: ["Communication", "Accompagnement", "Gestion d’équipe"]},
+  {id: "Bassin Vital", poste: "Projet de mémoire", competences: ["Conception de parcours", "Médiation augmentée", "Création sonore"]},
+  {id: "Opcommerce", poste: "Concepteur formateur", competences: ["IA & commerce", "Digitalisation", "Pédagogie active"]},
+  {id: "Master HN", poste: "Étudiant en master", competences: ["Humanités numériques", "Recherche", "Innovation pédagogique"]}
 ];
 
 const links = [
-  {source: "A", target: "B"}, {source: "B", target: "C"},
-  {source: "C", target: "D"}, {source: "D", target: "E"},
-  {source: "E", target: "F"}, {source: "F", target: "G"},
-  {source: "G", target: "H"}, {source: "H", target: "I"},
-  {source: "I", target: "J"}, {source: "J", target: "K"},
-  {source: "K", target: "L"}, {source: "L", target: "A"}
+  {source: "Université", target: "PNP Informatique"},
+  {source: "PNP Informatique", target: "YES Formation"},
+  {source: "YES Formation", target: "Bassin Vital"},
+  {source: "Bassin Vital", target: "Opcommerce"},
+  {source: "Opcommerce", target: "Master HN"},
+  {source: "Master HN", target: "Université"}
 ];
 
 const simulation = d3.forceSimulation(nodes)
-  .force("link", d3.forceLink(links).distance(60).id(d => d.id))
-  .force("charge", d3.forceManyBody().strength(-200))
+  .force("link", d3.forceLink(links).distance(140).id(d => d.id))
+  .force("charge", d3.forceManyBody().strength(-400))
   .force("center", d3.forceCenter(width / 2, height / 2));
 
 const link = svg.append("g")
   .selectAll("line")
   .data(links)
   .join("line")
-  .attr("stroke", "#999")
-  .attr("stroke-opacity", 0.6);
+  .attr("stroke", "#aaa");
 
 const node = svg.append("g")
   .selectAll("circle")
   .data(nodes)
   .join("circle")
-  .attr("r", 8)
-  .attr("fill", d => d3.schemeCategory10[Math.floor(Math.random() * 10)])
+  .attr("r", 12)
+  .attr("fill", "#333")
+  .style("cursor", "pointer")
+  .on("click", (event, d) => showTooltip(d))
   .call(drag(simulation));
 
-node.append("title").text(d => d.id);
+const label = svg.append("g")
+  .selectAll("text")
+  .data(nodes)
+  .join("text")
+  .text(d => d.id)
+  .attr("font-size", "12px")
+  .attr("dy", "-1.5em")
+  .attr("text-anchor", "middle");
+
+const tooltip = d3.select("body")
+  .append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
+
+function showTooltip(d) {
+  tooltip.transition()
+    .duration(200)
+    .style("opacity", 0.95);
+
+  tooltip.html(`<strong>${d.id}</strong><br>${d.poste}<br><em>Compétences :</em><ul>${d.competences.map(c => `<li>${c}</li>`).join("")}</ul>`)
+    .style("left", (event.pageX + 15) + "px")
+    .style("top", (event.pageY - 40) + "px");
+}
+
+svg.on("click", () => {
+  tooltip.transition().duration(500).style("opacity", 0);
+});
 
 simulation.on("tick", () => {
   link
@@ -49,20 +79,24 @@ simulation.on("tick", () => {
   node
     .attr("cx", d => d.x)
     .attr("cy", d => d.y);
+
+  label
+    .attr("x", d => d.x)
+    .attr("y", d => d.y);
 });
 
 function drag(simulation) {
   return d3.drag()
-    .on("start", function (event, d) {
+    .on("start", (event, d) => {
       if (!event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
     })
-    .on("drag", function (event, d) {
+    .on("drag", (event, d) => {
       d.fx = event.x;
       d.fy = event.y;
     })
-    .on("end", function (event, d) {
+    .on("end", (event, d) => {
       if (!event.active) simulation.alphaTarget(0);
       d.fx = null;
       d.fy = null;
