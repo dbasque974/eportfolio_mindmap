@@ -1,7 +1,14 @@
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  draw(); // Redessine les cercles après redimension
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas(); // Appelle au début pour adapter la taille
 
 let circles = [];
 let popup = document.getElementById("popup");
@@ -9,19 +16,13 @@ let popupTitle = document.getElementById("popup-title");
 let popupCompetences = document.getElementById("popup-competences");
 
 fetch("data.json")
-  .then(res => {
-    if (!res.ok) {
-      throw new Error("Erreur lors du chargement de data.json : " + res.status);
-    }
-    return res.json();
-  })
+  .then(res => res.json())
   .then(data => {
     console.log("Données reçues :", data);
     circles = data;
     draw();
   })
-  .catch(error => {
-    console.error("Erreur fetch :", error);
+  .catch(error => console.error("Erreur fetch :", error));
   });
 
 function draw() {
