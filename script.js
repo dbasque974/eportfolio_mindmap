@@ -9,11 +9,19 @@ let popupTitle = document.getElementById("popup-title");
 let popupCompetences = document.getElementById("popup-competences");
 
 fetch("data.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("Erreur lors du chargement de data.json : " + res.status);
+    }
+    return res.json();
+  })
   .then(data => {
-    console.log("Données reçues :", data); // 👈 debug
+    console.log("Données reçues :", data);
     circles = data;
     draw();
+  })
+  .catch(error => {
+    console.error("Erreur fetch :", error);
   });
 
 function draw() {
