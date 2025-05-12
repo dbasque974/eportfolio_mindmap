@@ -1,5 +1,4 @@
-// ✅ Déclare d'abord la variable avant tout usage
-let circles = [];
+let circles = []; // ✅ Déclaration d'abord
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -11,23 +10,21 @@ const popupCompetences = document.getElementById("popup-competences");
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  draw();
+  if (circles.length > 0) {
+    draw(); // ✅ seulement si les données sont prêtes
+  }
 }
 
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
 fetch("data.json")
-  .then(res => {
-    if (!res.ok) throw new Error("data.json introuvable");
-    return res.json();
-  })
+  .then(res => res.json())
   .then(data => {
-    console.log("Données reçues :", data);
     circles = data;
-    draw();
+    draw(); // ✅ draw() appelé une fois les données chargées
   })
-  .catch(error => console.error("Erreur fetch :", error));
+  .catch(err => console.error("Erreur fetch :", err));
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
