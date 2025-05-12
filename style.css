@@ -11,3 +11,14 @@ svg {
   display: block;
   margin: 2rem auto;
 }
+.tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #aaa;
+  padding: 1rem;
+  font-size: 14px;
+  pointer-events: none;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  max-width: 220px;
+}
+
