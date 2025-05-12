@@ -1,152 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> un parcours en construction</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title> un parcours en construction </title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Didier Basque</h1>
-            <p class="subtitle">Un parcours en construction...</p>
-        </header>
-        
-        <div class="sketch-container">
-            <div id="bubbleCanvas"></div>
-
-            <div class="bubble formation" id="master" 
-                 data-title="Master Humanités Numériques"
-                 data-period="Depuis octobre 2023"
-                 data-description="Université des Mascareignes (Maurice) x Université de la Réunion"
-                 data-skills="Humanités numériques, Industries culturelles, Recherche, Analyse de données culturelles">
-                <span>Master<br>Humanités<br>Numériques</span>
-            </div>
-
-            <div class="bubble experience" id="formateur-yes-you-can" 
-                 data-title="Formateur de Manager d'Unité Marchande"
-                 data-period="Mars à Juin 2022"
-                 data-description="Yes You Can! Formation"
-                 data-skills="Détection et analyse des freins et atouts, Accompagnement de parcours d'insertion, Formation professionnelle, Évaluation de compétences">
-                <span>Formateur<br>MUM</span>
-            </div>
-
-            <div class="bubble experience" id="enseignant-vacataire" 
-                 data-title="Enseignant vacataire en Licence INFOCOM"
-                 data-period="Depuis 2018"
-                 data-description="Université de La Réunion"
-                 data-skills="Enseignement supérieur, Communication, Médiation culturelle, Pédagogie">
-                <span>Enseignant<br>INFOCOM</span>
-            </div>
-
-            <div class="bubble experience" id="gerant-pnp" 
-                 data-title="Gérant"
-                 data-period="Depuis 2017"
-                 data-description="PNP Informatique"
-                 data-skills="Détermination des orientations stratégiques, Gestion d'entreprise, Informatique, Management">
-                <span>Gérant<br>PNP</span>
-            </div>
-
-            <div class="bubble experience" id="formateur-permakiltir" 
-                 data-title="Formateur d'Animateur.trice de Jardins Collectifs"
-                 data-period="Septembre 2022"
-                 data-description="CAUE X PERMAKILTIR'"
-                 data-skills="Animation de séances d'apprentissage, Encadrement d'équipe, Évaluation de compétences, Jardinage collectif, Transmission de savoir-faire">
-                <span>Formateur<br>Jardins<br>Collectifs</span>
-            </div>
-
-            <div class="bubble formation" id="stage-maraichage" 
-                 data-title="Stage ouvrier qualifié en maraîchage"
-                 data-period="Mars à Juin 2020"
-                 data-description="Exploitation HOAREAU Marcellin"
-                 data-skills="Conduite d'un processus de production horticole, Techniques de maraîchage durable, Respect des cahiers des charges, Production horticole">
-                <span>Stage<br>Maraîchage</span>
-            </div>
-
-            <div class="bubble formation" id="bac-pro" 
-                 data-title="BAC PRO Conduite de Production Horticole"
-                 data-period="2021"
-                 data-description="Candidat libre"
-                 data-skills="Production horticole, Gestion de cultures, Techniques agricoles durables">
-                <span>BAC PRO<br>Horticole</span>
-            </div>
-
-            <div class="bubble formation" id="licence-pro" 
-                 data-title="Licence Professionnelle Commerce"
-                 data-period="2007"
-                 data-description="IUT de Saint-Pierre, La Réunion - Option Commerce Électronique"
-                 data-skills="E-commerce, Marketing digital, Gestion commerciale, Techniques de vente">
-                <span>Licence Pro<br>Commerce</span>
-            </div>
-
-            <div class="bubble formation" id="feng-shui" 
-                 data-title="Formation en Feng-Shui"
-                 data-period="2014"
-                 data-description="Formation professionnelle"
-                 data-skills="Aménagement d'espace harmonieux, Équilibre énergétique, Conception spatiale">
-                <span>Formation<br>Feng-Shui</span>
-            </div>
-
-            <div class="bubble formation" id="bts-design" 
-                 data-title="BTS en Design d'Espace"
-                 data-period="2012"
-                 data-description="Formation professionnelle"
-                 data-skills="Conception d'espaces, Design d'intérieur, Modélisation, Créativité spatiale">
-                <span>BTS<br>Design<br>d'Espace</span>
-            </div>
-
-            <div class="bubble passion" id="nature" 
-                 data-title="Nature et environnement"
-                 data-period="Centre d'intérêt"
-                 data-description="Passion personnelle"
-                 data-skills="Écologie, Développement durable, Observation de la nature">
-                <span>Nature</span>
-            </div>
-
-            <div class="bubble passion" id="conception" 
-                 data-title="Conception d'objet et d'espace"
-                 data-period="Centre d'intérêt"
-                 data-description="Passion personnelle"
-                 data-skills="Design, Modélisation, Créativité, Esthétique">
-                <span>Conception</span>
-            </div>
-
-            <div class="bubble passion" id="realisation" 
-                 data-title="Réalisation d'objet et d'espace"
-                 data-period="Centre d'intérêt"
-                 data-description="Passion personnelle"
-                 data-skills="Artisanat, Fabrication, Travaux manuels, Mise en œuvre">
-                <span>Réalisation</span>
-            </div>
-            
-            <div class="bubble passion" id="ecriture" 
-                 data-title="Écriture créative"
-                 data-period="Centre d'intérêt"
-                 data-description="Écriture de nouvelles et de poèmes en français et en créole"
-                 data-skills="Créativité littéraire, Expression artistique, Bilinguisme français/créole">
-                <span>Écriture</span>
-            </div>
-        </div>
-        
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close">&times;</span>
-                <h2 id="popup-title"></h2>
-                <p id="popup-period" class="period"></p>
-                <p id="popup-description"></p>
-                <div class="skills-container">
-                    <h3>Compétences</h3>
-                    <ul id="popup-skills"></ul>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Didier Basque | <a href="mailto:basque.didier@gmail.com">basque.didier@gmail.com</a> | 0692 07 02 58</p>
-            <p class="footer-note">Portfolio en construction - Un projet de vie en esquisse</p>
-        </footer>
-    </div>
-    <script src="script.js"></script>
+  <canvas id="canvas"></canvas>
+  <div id="popup" class="hidden">
+    <h2 id="popup-title"></h2>
+    <ul id="popup-competences"></ul>
+    <button onclick="closePopup()">Fermer</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
