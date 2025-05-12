@@ -1,19 +1,21 @@
+// ✅ Déclare d'abord la variable avant tout usage
 let circles = [];
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popup-title");
+const popupCompetences = document.getElementById("popup-competences");
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   draw();
 }
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
 
-const popup = document.getElementById("popup");
-const popupTitle = document.getElementById("popup-title");
-const popupCompetences = document.getElementById("popup-competences");
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
 fetch("data.json")
   .then(res => {
@@ -25,7 +27,7 @@ fetch("data.json")
     circles = data;
     draw();
   })
-  .catch(err => console.error("Erreur fetch :", err));
+  .catch(error => console.error("Erreur fetch :", error));
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -34,8 +36,8 @@ function draw() {
     ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
     ctx.fillStyle = "#fffbd5";
     ctx.fill();
-    ctx.lineWidth = 2;
     ctx.strokeStyle = "#333";
+    ctx.lineWidth = 2;
     ctx.stroke();
     ctx.fillStyle = "#000";
     ctx.textAlign = "center";
