@@ -1,3 +1,5 @@
+let circles = [];
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -6,18 +8,16 @@ function resizeCanvas() {
   canvas.height = window.innerHeight;
   draw();
 }
-
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
-let circles = [];
-let popup = document.getElementById("popup");
-let popupTitle = document.getElementById("popup-title");
-let popupCompetences = document.getElementById("popup-competences");
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popup-title");
+const popupCompetences = document.getElementById("popup-competences");
 
 fetch("data.json")
   .then(res => {
-    if (!res.ok) throw new Error("data.json introuvable : " + res.status);
+    if (!res.ok) throw new Error("data.json introuvable");
     return res.json();
   })
   .then(data => {
@@ -25,7 +25,7 @@ fetch("data.json")
     circles = data;
     draw();
   })
-  .catch(err => console.error("Erreur : ", err));
+  .catch(err => console.error("Erreur fetch :", err));
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
