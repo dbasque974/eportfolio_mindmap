@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Portfolio de Didier Basque</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .about-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            border: 2px solid #333;
+            position: relative;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('texture.png');
+            opacity: 0.1;
+            mix-blend-mode: multiply;
+            z-index: -1;
+            border-radius: 18px;
+        }
+        
+        .about-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+            color: #444;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #555;
+            transform: translateY(-2px);
+        }
+        
+        .about-quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #666;
+            margin: 30px 0;
+            padding-left: 20px;
+            border-left: 3px solid #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Didier Basque</h1>
+            <p class="subtitle">À propos de ce portfolio</p>
+        </header>
+        
+        <div class="about-container">
+            <div class="about-section">
+                <h2 class="about-title">Concept du Portfolio</h2>
+                <p>Ce portfolio est conçu comme un <em>sketch</em>, une ébauche de projet de vie en construction. Inspiré des méthodes de conception d'espaces et d'aménagement, il présente mon parcours professionnel et académique sous forme de bulles interconnectées.</p>
+                
+                <h3 class="about-subtitle">L'inspiration derrière le design</h3>
+                <p>Le design s'inspire des diagrammes de conception spatiale où chaque espace est représenté par un cercle. Cette approche fait écho à ma formation en design d'espace et à mon intérêt pour le feng-shui, créant un parcours où chaque expérience et formation constitue un "espace" de compétence dans le plan global de ma vie professionnelle.</p>
+                
+                <p class="about-quote">"Un parcours professionnel, comme un espace bien conçu, doit être à la fois fonctionnel et poétique."</p>
+                
+                <h3 class="about-subtitle">À propos des technologies utilisées</h3>
+                <p>Ce portfolio utilise des technologies web simples mais efficaces :</p>
+                <ul>
+                    <li>HTML5 pour la structure</li>
+                    <li>CSS3 pour le style et les animations</li>
+                    <li>JavaScript pour les interactions</li>
+                    <li>Canvas pour dessiner les connexions entre les cercles</li>
+                    <li>SVG pour les textures et les éléments graphiques</li>
+                </ul>
+                
+                <h3 class="about-subtitle">Comment naviguer</h3>
+                <p>Pour explorer mon parcours :</p>
+                <ul>
+                    <li>Cliquez sur chaque bulle pour découvrir les détails du poste ou de la formation</li>
+                    <li>Observez les connexions entre les bulles qui représentent les liens entre mes différentes expériences</li>
+                    <li>Sur mobile, faites défiler pour voir toutes les bulles</li>
+                </ul>
+                
+                <a href="index.html" class="back-link">Retour au portfolio</a>
+            </div>
+            
+            <div class="about-section">
+                <h2 class="about-title">À propos de moi</h2>
+                <p>Je suis Didier Basque, professionnel polyvalent basé à La Réunion, jonglant entre formation, enseignement, et gestion d'entreprise. Mon parcours reflète ma passion pour la transmission de connaissances et mon intérêt pour les domaines de l'informatique, du design d'espace et de l'horticulture durable.</p>
+                
+                <h3 class="about-subtitle">Ma philosophie</h3>
+                <p>Je crois en un équilibre entre tradition et innovation, entre nature et technologie. Ma démarche professionnelle s'inspire des principes du feng-shui et du développement durable, cherchant toujours à créer de l'harmonie dans mes projets comme dans ma vie.</p>
+                
+                <h3 class="about-subtitle">Contact</h3>
+                <p>N'hésitez pas à me contacter pour collaborer ou échanger :</p>
+                <ul>
+                    <li>Email : <a href="mailto:basque.didier@gmail.com">basque.didier@gmail.com</a></li>
+                    <li>Téléphone : 0692 07 02 58</li>
+                    <li>Adresse : 19 bis, avenue Jacques Prévert, 97420 LE PORT</li>
+                </ul>
+                
+                <a href="index.html" class="back-link">Retour au portfolio</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Didier Basque | <a href="mailto:basque.didier@gmail.com">basque.didier@gmail.com</a> | 0692 07 02 58</p>
+            <p class="footer-note">Portfolio en construction - Un projet de vie en esquisse</p>
+        </footer>
+    </div>
+</body>
+</html>
