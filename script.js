@@ -1,4 +1,5 @@
-let circles = []; // ✅ Déclaration d'abord
+// ✅ Déclaration en tout premier
+let circles = [];
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -6,25 +7,6 @@ const ctx = canvas.getContext("2d");
 const popup = document.getElementById("popup");
 const popupTitle = document.getElementById("popup-title");
 const popupCompetences = document.getElementById("popup-competences");
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  if (circles.length > 0) {
-    draw(); // ✅ seulement si les données sont prêtes
-  }
-}
-
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-fetch("data.json")
-  .then(res => res.json())
-  .then(data => {
-    circles = data;
-    draw(); // ✅ draw() appelé une fois les données chargées
-  })
-  .catch(err => console.error("Erreur fetch :", err));
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -37,11 +19,34 @@ function draw() {
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.fillStyle = "#000";
-    ctx.textAlign = "center";
     ctx.font = "bold 14px 'Courier New'";
+    ctx.textAlign = "center";
     ctx.fillText(circle.label, circle.x, circle.y);
   });
 }
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  if (circles.length > 0) {
+    draw();
+  }
+}
+
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+fetch("data.json")
+  .then(res => {
+    if (!res.ok) throw new Error("data.json introuvable");
+    return res.json();
+  })
+  .then(data => {
+    console.log("Données reçues :", data);
+    circles = data;
+    draw();
+  })
+  .catch(err => console.error("Erreur fetch :", err));
 
 canvas.addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
