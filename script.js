@@ -1,7 +1,7 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-canvas.width = 100;
-canvas.height = 100;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let circles = [];
 let popup = document.getElementById("popup");
