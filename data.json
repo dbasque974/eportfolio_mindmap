@@ -1,0 +1,132 @@
+[
+  {
+    "label": "Master Humanités Numériques",
+    "x": 600,
+    "y": 200,
+    "r": 85,
+    "competences": [
+      "Culture numérique",
+      "Industries culturelles",
+      "Innovation territoriale",
+      "Humanités critiques"
+    ]
+  },
+  {
+    "label": "Enseignant vacataire INFOCOM",
+    "x": 400,
+    "y": 150,
+    "r": 75,
+    "competences": [
+      "Médiation culturelle",
+      "Conception de parcours pédagogiques",
+      "Pédagogie par projet",
+      "Numérisation du patrimoine"
+    ]
+  },
+  {
+    "label": "Formateur Jardins Collectifs",
+    "x": 250,
+    "y": 350,
+    "r": 70,
+    "competences": [
+      "Animation de groupe",
+      "Apprentissage en production",
+      "Sensibilisation à l’environnement",
+      "Techniques agroécologiques"
+    ]
+  },
+  {
+    "label": "Gérant - PNP Informatique",
+    "x": 200,
+    "y": 100,
+    "r": 65,
+    "competences": [
+      "Stratégie d’entreprise",
+      "Gestion de projet",
+      "Informatique & E-commerce",
+      "Entrepreneuriat"
+    ]
+  },
+  {
+    "label": "Formateur Yes You Can!",
+    "x": 700,
+    "y": 350,
+    "r": 60,
+    "competences": [
+      "Formation professionnelle",
+      "Insertion sociale",
+      "Diagnostic de parcours",
+      "Accompagnement individualisé"
+    ]
+  },
+  {
+    "label": "Stage maraîchage (Hoareau)",
+    "x": 350,
+    "y": 500,
+    "r": 55,
+    "competences": [
+      "Techniques de production horticole",
+      "Gestion durable des cultures",
+      "Lecture de cahier des charges",
+      "Travail en agriculture raisonnée"
+    ]
+  },
+  {
+    "label": "BAC PRO Horticole",
+    "x": 480,
+    "y": 480,
+    "r": 50,
+    "competences": [
+      "Conduite de production",
+      "Agriculture durable",
+      "Savoirs professionnels en horticulture"
+    ]
+  },
+  {
+    "label": "BTS Design d’Espace",
+    "x": 800,
+    "y": 150,
+    "r": 60,
+    "competences": [
+      "Design architectural",
+      "Conception d’espace",
+      "Dessin technique et créatif",
+      "Esquisse de projets"
+    ]
+  },
+  {
+    "label": "Licence Commerce Électronique",
+    "x": 850,
+    "y": 270,
+    "r": 55,
+    "competences": [
+      "Marketing numérique",
+      "Gestion commerciale",
+      "Technologies du web",
+      "Stratégie de vente en ligne"
+    ]
+  },
+  {
+    "label": "Formation Feng Shui",
+    "x": 920,
+    "y": 350,
+    "r": 45,
+    "competences": [
+      "Équilibre des espaces",
+      "Harmonie environnementale",
+      "Approche énergétique de l’habitat"
+    ]
+  },
+  {
+    "label": "Écriture poétique et nouvelles",
+    "x": 150,
+    "y": 250,
+    "r": 50,
+    "competences": [
+      "Création littéraire",
+      "Écriture en français et créole",
+      "Sensibilité artistique",
+      "Exploration narrative"
+    ]
+  }
+]
