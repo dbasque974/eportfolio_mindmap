@@ -11,6 +11,7 @@ let popupCompetences = document.getElementById("popup-competences");
 fetch("data.json")
   .then(res => res.json())
   .then(data => {
+    console.log("Données reçues :", data); // 👈 debug
     circles = data;
     draw();
   });
