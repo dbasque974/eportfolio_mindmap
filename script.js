@@ -4,11 +4,11 @@ const ctx = canvas.getContext("2d");
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  draw(); // Redessine les cercles après redimension
+  draw();
 }
 
 window.addEventListener('resize', resizeCanvas);
-resizeCanvas(); // Appelle au début pour adapter la taille
+resizeCanvas();
 
 let circles = [];
 let popup = document.getElementById("popup");
@@ -16,27 +16,29 @@ let popupTitle = document.getElementById("popup-title");
 let popupCompetences = document.getElementById("popup-competences");
 
 fetch("data.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error("Erreur lors du chargement de data.json : " + res.status);
+    return res.json();
+  })
   .then(data => {
     console.log("Données reçues :", data);
     circles = data;
     draw();
   })
   .catch(error => console.error("Erreur fetch :", error));
-  });
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   circles.forEach(circle => {
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "#333";
     ctx.lineWidth = 2;
     ctx.stroke();
-    ctx.fillStyle = "#fefcc8";
+    ctx.fillStyle = "#fdf8c0";
     ctx.fill();
-    ctx.fillStyle = "black";
-    ctx.font = "14px Courier New";
+    ctx.fillStyle = "#000";
+    ctx.font = "14px 'Courier New', Courier, monospace";
     ctx.textAlign = "center";
     ctx.fillText(circle.label, circle.x, circle.y);
   });
@@ -71,3 +73,4 @@ function showPopup(circle) {
 function closePopup() {
   popup.classList.add("hidden");
 }
+
